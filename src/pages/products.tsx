@@ -99,7 +99,7 @@ const Page = () => {
   <>
     <Head>
       <title>
-        Products | Pets Town | onbeirut.com
+        Products | Bucksmart
       </title>
     </Head>
    {isAuthed && <Box

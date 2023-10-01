@@ -28,11 +28,11 @@ const items = [
   //   icon: (<UsersIcon fontSize="small" />),
   //   title: 'Customers'
   // },
-  {
-    href: '/images',
-    icon: (<ChartBarIcon fontSize="small" />),
-    title: 'Images'
-  },
+  // {
+  //   href: '/images',
+  //   icon: (<ChartBarIcon fontSize="small" />),
+  //   title: 'Images'
+  // },
   {
     href: '/order',
     icon: (<ChartBarIcon fontSize="small" />),
@@ -115,10 +115,10 @@ export const DashboardSidebar = (props) => {
           </Box>
           <Box sx={{px:'1em',pb:'1em'}}>
             <Typography fontSize='1.2em'>
-            OnBeirut Web Agency
+            
             </Typography>
             <Typography fontSize='.8em'>
-            Pets Town Dashboard
+             Bucksmart Dashboard
             </Typography>
           </Box>
 

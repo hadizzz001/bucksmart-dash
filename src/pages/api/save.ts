@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // Process a POST request
     // console.log('product: ', product);
     if (!product) return res.status(400).json({success:false})
-       const insertReq = await client.db("PETS").collection("Products").insertOne(product);
+       const insertReq = await client.db("itemdb").collection("Products").insertOne(product);
        if (insertReq.acknowledged) {
          return res.status(200).json({success:true});
         }

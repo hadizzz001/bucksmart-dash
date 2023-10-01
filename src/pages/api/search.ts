@@ -21,7 +21,7 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
     // kabera
     // Process a POST request
     // if (!product) return res.status(400).json({success:false})
-       const ProductsCollection = await client.db("PETS").collection("Products")
+       const ProductsCollection = await client.db("itemdb").collection("Products")
        const docs = await ProductsCollection.find({
         $or: [
             { title: { $regex: search, $options: 'i' } },

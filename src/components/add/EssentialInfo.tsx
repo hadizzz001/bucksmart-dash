@@ -9,49 +9,7 @@ import { useRouter } from 'next/router';
 // import { CustomSelect } from '../dashboard/CustomSelect';
 import MultipleSelect from './CustomSelect';
 import Categories from './Categories';
-// import { Facebook as FacebookIcon } from '../icons/facebook';
-// import { Google as GoogleIcon } from '../icons/google';
-// const catsSubcategories = [
-//   "Food",
-//   "Treats",
-//   "Toys",
-//   "Collars",
-//   "Leashes",
-//   "Apparel",
-//   "Grooming",
-//   "Brushes",
-//   "Litters",
-//   "Hygiene",
-//   "Health",
-//   "Wellness",
-//   "Medication",
-//   "Fleas",
-//   "Ticks"
-// ];
-
-// const dogsSubcategories = [
-//   "Food",
-//   "Treats",
-//   "Toys",
-//   "Collars",
-//   "Leashes",
-//   "Apparel",
-//   "Grooming",
-//   "Brushes",
-//   "Hygiene",
-//   "Health",
-//   "Wellness",
-//   "Medication",
-//   "Fleas",
-//   "Ticks"
-// ];
-
-// const offersSubcategories = [
-//   "Special Deals",
-//   "Clearance Items",
-//   "Discounted Bundles"
-// ];
-
+ 
 interface IInit {
 
     title: string;
@@ -68,96 +26,10 @@ interface IInit {
     // colors : string[] | [];
     category: string;
 
-}
-// const AllCats = [
-//   {
-//     categoryName: "dogs",
-//     categoryItems: [
-//       {
-//         Category: "Food",
-//         Subcategories: ["Dry food", "Wet food"]
-//       },
-//       {
-//         Category: "Treats",
-//         Subcategories: ["Casual treats", "Training treats", "Dental treats", "Bones"]
-//       },
-//       {
-//         Category: "Toys",
-//         Subcategories: ["Casual toys", "Interactive toys", "Kong"]
-//       },
-//       {
-//         Category: "Apparels",
-//         Subcategories: ["Leashes", "Collars", "Harnesses", "Clothes", "Scarfs"]
-//       },
-//       {
-//         Category: "Beds and Houses",
-//         Subcategories: ["Beds", "Crates"]
-//       },
-//       {
-//         Category: "Grooming Essentials",
-//         Subcategories: ["Brushes", "Nail clippers", "Perfumes", "Shampoos", "Hygiene accessories"]
-//       },
-//       {
-//         Category: "Medication",
-//         Subcategories: ["Ticks & Fleas", "Oral health", "Supplements"]
-//       },
-//       {
-//         Category: "Accessories",
-//         Subcategories: ["Bowls & Feeders", "Muzzles"]
-//       }
-//     ]
-//   },
-//   {
-//     categoryName: "cats",
-//     categoryItems: [
-//       {
-//         Category: "Food",
-//         Subcategories: ["Dry food", "Wet food"]
-//       },
-//       {
-//         Category: "Litter",
-//         Subcategories: []
-//       },
-//       {
-//         Category: "Scratchers",
-//         Subcategories: []
-//       },
-//       {
-//         Category: "Treats",
-//         Subcategories: ["Wet treats", "Casual treats"]
-//       },
-//       {
-//         Category: "Toys",
-//         Subcategories: ["Casual toys", "Interactive toys", "Kong"]
-//       },
-//       {
-//         Category: "Apparels",
-//         Subcategories: ["Leashes", "Collars", "Harnesses", "Clothes", "Scarfs"]
-//       },
-//       {
-//         Category: "Beds and Houses",
-//         Subcategories: ["Beds", "Crates"]
-//       },
-//       {
-//         Category: "Grooming Essentials",
-//         Subcategories: ["Brushes", "Nail clippers", "Perfumes", "Shampoos", "Hygiene accessories"]
-//       },
-//       {
-//         Category: "Medication",
-//         Subcategories: ["Ticks & Fleas", "Oral health", "Supplements"]
-//       },
-//       {
-//         Category: "Accessories",
-//         Subcategories: ["Bowls & Feeders"]
-//       }
-//     ]
-//   },
-//   // Add other categories like "Offers" and "New Arrivals" as needed
-// ];
-
+} 
 
   const Index = ({setDisabled}:{setDisabled:any}) => {
-    const [imgs, setImgs] = useState([''])
+    const [imgs, setImgs] = useState(['']) 
     // const [selectedColors, setSelectedColors] = useState<string[]>([]);
 
     const [itemToEDIT,setItemToEdit]= useState<any>({})
@@ -175,7 +47,7 @@ interface IInit {
       //   size:'',
 
       // },
-      category : 'new arrivals',
+      category : 'furniture',
       // inStock: false,
       // Manufacturer
       // additionalInfo:'',
@@ -260,7 +132,15 @@ const resetForm = () => {
   type : '',
   description:'',
   isFeatured : false,
-  category : 'new arrivals'})
+  category : 'furniture'})
+
+
+  let element: HTMLElement = document.getElementsByClassName('uploadcare--widget__button_type_remove')[0] as HTMLElement;
+  element.click();
+
+ 
+
+
 }
 const onSubmit = async (e:any)=>{
   e.preventDefault();
@@ -389,7 +269,7 @@ setDisabled(false)
     defaultValue={'sale'}
     onChange={handleChange}
   >
-    <MenuItem  value={'new arrivals'}>New arrivals</MenuItem>
+    <MenuItem  value={'furniture'}>furniture</MenuItem>
     {[
 
 
@@ -431,7 +311,6 @@ value={`${item.toLowerCase()}`}>{item}</MenuItem>
     })}
   </Select>
   </> */}
-
 <Categories
 type={init?.type?.toLocaleLowerCase()}
 

@@ -11,7 +11,7 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
     const a = _req?.body;
     const {page} = _req?.query || '1';
     try {
-      const ProductsCollection = await client.db('PETS').collection('Products');
+      const ProductsCollection = await client.db('itemdb').collection('Products');
       const pageNb = parseInt(`${page}`) || 1;
       const pageSize = parseInt('20') || 12; // Default to 20 items per page
       const skip = (pageNb - 1) * pageSize;

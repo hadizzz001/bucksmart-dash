@@ -4,12 +4,20 @@ import {FilesUpload, FileUpload, Widget} from "@uploadcare/react-widget";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 
+
+
+
 interface IImageForm {
     HandleImagesChange :  Dispatch<SetStateAction<string[] | any[]>>
     defaultValue ?: string[] | undefined | null;
   }
 
 const ImageForm = ({defaultValue,HandleImagesChange}:IImageForm) => {
+    const [key, setKey] = useState(0);
+function onChange() {
+  setKey(Math.random());
+}
+
  const [load,setLoad] = useState(true)
 //  useEffect(() => {
 //   setLoad(true)
@@ -38,7 +46,8 @@ const ImageForm = ({defaultValue,HandleImagesChange}:IImageForm) => {
                 imagesOnly={true}
                 multipleMax={15}
 
-                publicKey={`${'PUBLIC_API_KEY'}`}/> */}
+                publicKey={`${'ec38cf91248a02a7cb5a'}`}/> */}
+
 
 
 {load && <Widget
@@ -52,7 +61,7 @@ const ImageForm = ({defaultValue,HandleImagesChange}:IImageForm) => {
                                     //     images: imgs
                                     // })
                                     HandleImagesChange(imgs)
-                                }}
+                                }}  
                                     onFileSelect={async(e : any) => {
                                     let filess = e && e.files();
                                     if (!filess) return;
@@ -64,11 +73,12 @@ const ImageForm = ({defaultValue,HandleImagesChange}:IImageForm) => {
                                                 immg.push(`${file.cdnUrl}`)
                                             }
                                         })
+                                         
                                     }
                                     setImages(immg)
                                 }}
-                                // publicKey="PUBLIC_API_KEY"
-                                publicKey="PUBLIC_API_KEY"
+                                // publicKey="ec38cf91248a02a7cb5a"
+                                publicKey="ec38cf91248a02a7cb5a"
 
 
                                     />

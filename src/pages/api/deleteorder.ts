@@ -17,7 +17,7 @@ export default async(req : NextApiRequest, res : NextApiResponse) => {
             }
 
             const deletedProduct = await client
-                .db("PETS")
+                .db("itemdb")
                 .collection("Orders")
                 .deleteOne({
                     "_id": new ObjectId(`${id}`)

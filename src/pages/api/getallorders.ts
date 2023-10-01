@@ -16,7 +16,7 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
     // kabera
     // Process a POST request
     // if (!product) return res.status(400).json({success:false})
-       const ProductsCollection = await client.db("PETS").collection("Orders")
+       const ProductsCollection = await client.db("itemdb").collection("Orders")
        const docs = await ProductsCollection.find({}).limit(limit )
       const products : any[] = [];
        await docs.forEach((prod:any) =>{

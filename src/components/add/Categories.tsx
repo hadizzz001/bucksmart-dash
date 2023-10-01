@@ -2,84 +2,90 @@ import { InputLabel, MenuItem,Select } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 const AllCats = [
   {
-    categoryName: "dogs",
+    categoryName: "furniture",
     categoryItems: [
       {
-        Category: "Food",
-        Subcategories: ["Dry food", "Wet food"]
+        Category: "Sofa",
+        Subcategories: ["Armchairs", "Couch", "Corner Sofa"]
       },
       {
-        Category: "Treats",
-        Subcategories: ["Casual treats", "Training treats", "Dental treats", "Bones"]
+        Category: "Bed",
+        Subcategories: ["Master Bed", "Single Bed"]
       },
       {
-        Category: "Toys",
-        Subcategories: ["Casual toys", "Interactive toys", "Kong"]
+        Category: "Table",
+        Subcategories: ["Dining Table", "Coffee Table", "Console"]
       },
       {
-        Category: "Apparels",
-        Subcategories: ["Leashes", "Collars", "Harnesses", "Clothes", "Scarfs"]
+        Category: "Indoor Furniture",
+        Subcategories: []
       },
       {
-        Category: "Beds and Houses",
-        Subcategories: ["Beds", "Crates"]
-      },
-      {
-        Category: "Grooming Essentials",
-        Subcategories: ["Brushes", "Nail clippers", "Perfumes", "Shampoos", "Hygiene accessories"]
-      },
-      {
-        Category: "Medication",
-        Subcategories: ["Ticks & Fleas", "Oral health", "Supplements"]
-      },
-      {
-        Category: "Accessories",
-        Subcategories: ["Bowls & Feeders", "Muzzles"]
+        Category: "Outdoor Furniture",
+        Subcategories: []
       }
     ]
   },
   {
-    categoryName: "cats",
+    categoryName: "Home Appliance",
     categoryItems: [
       {
-        Category: "Food",
-        Subcategories: ["Dry food", "Wet food"]
+        Category: "kitchen",
+        Subcategories: ["Refrigerator", "Dish Washer", "Microwave", "Blender", "Oven", "Kitchen Ware"]
       },
       {
-        Category: "Litter",
+        Category: "Cleaning",
+        Subcategories: ["Vacuum cleaner", "Air blower", "Cleaning Ware"]
+      },
+      {
+        Category: "Laundry",
+        Subcategories: ["Washing Machine", "Dryer", "Iron", "Laundry Ware"]
+      },
+      {
+        Category: "Computer",
+        Subcategories: ["Laptop", "PC", "Smart Phone", "Smart Watch"]
+      },
+      {
+        Category: "Other Appliance",
+        Subcategories: []
+      }
+    ]
+  },
+  {
+    categoryName: "Fashion",
+    categoryItems: [
+      {
+        Category: "Women Fashion",
         Subcategories: []
       },
       {
-        Category: "Scratchers",
+        Category: "Men Fashion",
         Subcategories: []
       },
       {
-        Category: "Treats",
-        Subcategories: ["Wet treats", "Casual treats"]
+        Category: "Kids Wear",
+        Subcategories: []
       },
       {
-        Category: "Toys",
-        Subcategories: ["Casual toys", "Interactive toys", "Kong"]
+        Category: "Baby Wear",
+        Subcategories: []
+      }
+    ]
+  },
+  {
+    categoryName: "Beauty And Personal Care",
+    categoryItems: [
+      {
+        Category: "Makeup",
+        Subcategories: []
       },
       {
-        Category: "Apparels",
-        Subcategories: ["Leashes", "Collars", "Harnesses", "Clothes", "Scarfs"]
+        Category: "Skin Care",
+        Subcategories: []
       },
       {
-        Category: "Beds and Houses",
-        Subcategories: ["Beds", "Crates"]
-      },
-      {
-        Category: "Grooming Essentials",
-        Subcategories: ["Brushes", "Nail clippers", "Perfumes", "Shampoos", "Hygiene accessories"]
-      },
-      {
-        Category: "Medication",
-        Subcategories: ["Ticks & Fleas", "Oral health", "Supplements"]
-      },
-      {
-        Category: "Accessories",
-        Subcategories: ["Bowls & Feeders"]
+        Category: "Hair Care",
+        Subcategories: []
       }
     ]
   },
@@ -90,12 +96,11 @@ function YourComponent({type,category,subCategory,handleCateChange} : {subCatego
 
 
   // Get the selected category object from AllCats
-  const selectedCategoryObject = AllCats.find((cat) => cat.categoryName === category);
+  const selectedCategoryObject = AllCats.find((cat) => cat.categoryName.replace(/ +/g, '-').toLocaleLowerCase() == category.replace(/ +/g, '-').toLocaleLowerCase());
 
   // Extract subcategories based on the selected category
   const subCategories =
-    selectedCategoryObject?.categoryItems.find((item) => item.Category.toLowerCase() === type)?.Subcategories || [];
-
+    selectedCategoryObject?.categoryItems.find((item) => item.Category.toLocaleLowerCase() === type)?.Subcategories || [];
   // Update selected subcategory when the category changes
 
 
@@ -115,7 +120,7 @@ function YourComponent({type,category,subCategory,handleCateChange} : {subCatego
         defaultValue={'dogs'}
         onChange={(e) => handleCateChange('category', e.target.value)}
       >
-        {['Dogs', 'Cats', 'Offers'].map((item) => (
+        {['furniture', 'Home Appliance', "Fashion", "Beauty And Personal Care"].map((item) => (
           <MenuItem key={item} value={item.toLocaleLowerCase()}>
             {item}
           </MenuItem>

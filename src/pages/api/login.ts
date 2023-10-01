@@ -17,9 +17,10 @@ export default  async (req: NextApiRequest, res: NextApiResponse)  => {
     // console.log('hashedpas: ', hashedpas);
 
   if(Email && Password) {
-    const users = client.db("PETS").collection("Users");
+    const users = client.db("itemdb").collection("Users");
     const admin = await users.findOne({Email})
-
+    const a = await bcrypt.hash('new123456789',10);
+    console.log("The enc pass: "+a);
     // console.log('admin: ', admin);
     if (!admin) {
       throw 'Error, incorrect credentials'

@@ -34,12 +34,7 @@ export const ProductListToolbar = ({q,handleSubmit,totalCount,handleChange}:any)
         Products ({totalCount || 0})
       </Typography>
       <Box sx={{ m: 1 }}>
-        <Button
-          startIcon={(<UploadIcon fontSize="small" />)}
-          sx={{ mr: 1 }}
-        >
-          Import
-        </Button>
+ 
 
         <Button
   onClick={()=>router.push('/add')}

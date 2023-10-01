@@ -6,7 +6,7 @@ import { ObjectId } from 'mongodb';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
   const id = req.query.pid;
-  const product = await client.db("PETS").collection("Products").findOne({_id:new ObjectId(`${id}`)});
+  const product = await client.db("itemdb").collection("Products").findOne({_id:new ObjectId(`${id}`)});
   if (product) {
          return res.status(200).json(product);
         }
